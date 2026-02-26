@@ -1,0 +1,31 @@
+
+Studio 2-Input and Output
+
+1. Running cat: 
+When I ran "cat", it waits for input from the keyboard. Each line I typed is immediately printed back to the screen. The program continues runninguntil I press CTRL-D, which sends an end-of-file dignal and terminates it.
+ 
+2. Redirecting input from mars.txt:
+When I run "cat < mars.txt", the program reads input from the file instead of the keyboard. The contents of the file are displayed on the screen. The "<" symbol tells the program to use the file as input. 
+ 
+3. Redirecting output to new.txt:
+When I run "cat < mars.txt > new.txt", the program copies everything from "mars.txt" into "new.txt." Nothing shows on the screen because the output goes into the file. The ">" symbol replaces everything already in the file. 
+
+4. Using cat > new.txt:
+When I run "cat > new.txt" the program takes keyboard input that I write. and when I run "cat new.txt" the program outputs what I wrote in the txt file.   
+
+5. Using cat >> new.txt:
+When I use, ">>", the program appends new text to the end of the file instead of overwritting it. Running the command multiple times keepsadding contents. 
+
+Last part: Behavior of copy.c with different buffer sizes:
+1. Running ./copy:
+When I run ./copy and type text, each line I enter is immediately echoed back to the terminal. Pressing CTRL-D ends the input and exists the program. This matches the behavior of cat with keyboard input.
+ 
+2. Running ./copy < mars.txt: 
+When I run ./copy < mars.txt, the program reads input from the file mars.txt and prints its contents to the terminal. The program exists automatically after reaching the end of the file. This matches car with input redirection.
+ 
+3. Running ./copy < mars.txt > test.txt:
+When I run ./copy with input from mars.txt and redirect output to test.txt, nothing is printed to the terminal. After checking the file with cat test.txt, its contents exacly match mars.txt. This confirms that output redirection works correctly, just like cat. 
+
+Changing bufferSize does not affect correctness as long as it is greater than zero. Evern with bufferSize equal to 1, the program still works because it continues reading until EOF. 
+
+A small buffer results in more system calls and slower performance, but uses less memory. A large buffer improves efficiency by reducing system calls, but uses more memory. The tradeoff is between performance and memory usage.  
