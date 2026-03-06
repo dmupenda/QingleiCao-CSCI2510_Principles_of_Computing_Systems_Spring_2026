@@ -1,0 +1,63 @@
+
+CSCI2510 - Studio3: Pointers
+Darcy Mupenda
+
+1. for loop with Index notation
+
+for(int i=0; i<11; i++){
+  print("%c\n", messagePtr[i]);
+}
+
+2. value of *messagePtr
+H
+
+3. Pointer arithmentic loop
+
+for(int i=0; i<11; i++){
+  printf("%c\n", *(messagePrt + i));
+}
+
+4. while loop using null-terminator
+ 
+int i=0;
+
+while(messagePtr[i] != '\0'){
+  printf("%c\n", messagePtr[i]);
+  i++;
+}
+
+5. printReverse function
+
+void printReverse(char* string){
+  int length = 0; 
+  
+  while(string[length] != '\0'){
+       length++;
+  }
+
+  for(int i=length-1; i>=0; i--){
+      printf("%c\n", string[i]);
+  }
+}
+
+6. reverseString function
+
+char* reverseString(char* input){
+
+   int length = 0;
+
+   while(input[length] != '\0'){
+      length++;
+   }
+
+   char* ouput = (char*)malloc(length + 1);
+
+   for(int i=0; i<length; i++){
+      output[i] = input[length - 1 - i];
+   }
+   output[length] = '\0';
+   return output; 
+
+} 
+
+

@@ -1,0 +1,6 @@
+!/bin/bash
+wc -l access.log | awk '{print $1}'
+grep 404 access.log
+awk '{print $1}' access.log | sort | uniq -c | sort -k 1 -r | head -n 3
+awk '{print $3}' access.log |sort|uniq
+awk '{print $2}' access.log |sort|uni -c|sort -k 1 -r|awk '{print $2, $1}' 
