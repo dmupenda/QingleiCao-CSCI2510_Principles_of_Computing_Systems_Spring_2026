@@ -5,7 +5,7 @@ Darcy Mupenda
 1. for loop with Index notation
 
 for(int i=0; i<11; i++){
-  print("%c\n", messagePtr[i]);
+  printf("%c\n", messagePtr[i]);
 }
 
 2. value of *messagePtr
