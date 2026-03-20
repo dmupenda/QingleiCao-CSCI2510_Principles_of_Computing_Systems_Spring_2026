@@ -1,0 +1,45 @@
+
+CSCI 2510 - Lab1
+
+1. I worked on this by myself. 
+
+2. This compression works well when the file has many repeated patterns or characters, such as "AAAAAA" or long sequences of the same values.
+
+This compression works poorly when the file has little or no repetition, such as "ABCDEFG", because it may even increase the file size instead of reducing it.
+
+3. The file "1mil_strong_bias" compresses the best because it contains many repeated values (especially the number 0 appearing very frequently). More repetition leads to better compression.
+
+4. Compression Rations (K=1) 
+
+mil_random:
+Original size: 1000000 bytes
+Compressed size: 1598828 bytes
+Compression ratio: 0.63
+
+1mil_weak_bias:
+Original size: 1000000 bytes
+Compressed size: 851464 bytes
+Compression ratio: 1.17
+
+1mil_strong_bias:
+Original size: 1000000 bytes
+Compressed size: 409084 bytes
+Compression ratio: 2.44
+
+The random file compresses poorly because it has almost no repetition. The weak bias file compresses better due to some repeated values. The strong bias file compresses the best because it has many repeated values, allowing long runs to be stored efficiently.
+
+
+5. Timing Result 
+
+Command:
+time ./rle test4 output 1 0
+
+Real time: 0m22.584s
+
+Command:
+time ./rle test4 output 10 0
+
+Real time: 0m22.226s
+
+When K is larger, fewer comparisons are needed because the program processes larger chunks of data. This can reduce the total number of operations and slightly improve performance.
+
