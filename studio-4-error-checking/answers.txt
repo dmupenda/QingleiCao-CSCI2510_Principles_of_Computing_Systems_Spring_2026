@@ -1,0 +1,45 @@
+
+
+CSCI 2510: Studio-4
+Darcy Mupenda
+
+Exercise answers 
+
+1. What happens when the file does not exist?
+When the file does not exist, the program prints:
+"Error opening file: No such file or directory"
+because open() fails.
+
+2. What happens with perm.text after removing permissions?
+When running the program on perm.txt after removing permissions, it prints:
+"Error opening file: Permission denied"
+because the file no longer has read permissions.
+
+3. what does open() return on error? 
+-1
+
+4. if (fd == -1) is used to check error
+
+5. perror() line:
+perror("Error opening file");
+
+6. return values and errno:
+
+open  returns -1 on error, sets errno
+
+read  returns -1 on error, sets errno
+
+write  returns -1 on error, sets errno
+
+close  returns -1 on error, sets errno
+
+printf  returns a negative value on error, sets errno 
+
+7. reasons why error checking is important: 
+- it helps detect errors ealry, making debbuging easier.
+- it prevents crashed by handling failures.
+
+
+
+
+  
