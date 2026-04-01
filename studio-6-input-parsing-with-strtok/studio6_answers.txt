@@ -1,0 +1,58 @@
+
+Studio 6 - Parsing String Input
+CSCI 2510 
+Darcy Mupenda 
+------------------------------
+
+1. Basic fgets() program output: 
+Enter input: Hello I'm Darcy
+You entered: Hello I'm Darcy 
+
+2. Parse and print the first token using strtok()
+Enter input: This is me
+First token: This
+
+3. Print all tokens in a loop
+Enter input: This is a test
+This 
+is 
+a
+test
+
+4. Strip the trailing newline
+buffer[strcspn(buffer, "\n")] = '\0'
+
+The output would be as printed below: 
+Enter input: This is a test
+This 
+is 
+a 
+test
+
+5. Assignment statement for cmd:
+cmd = strtok(buffer, " ");
+
+6. code to fill my_argv[]:
+my_argv[0] = cmd;
+int i = 1;
+char *token = strtok(NULL, " ");
+while (token != NULL && i < max_argv_size -1) {
+    my_argv[i] = token;
+    i++;
+    token = strtok)NULL, " ");
+} 
+my_argv[i] = NULL; 
+
+7. Final - execute with execvp():
+Enter command: echo Hello World 
+Hello World 
+
+or 
+
+Enter command: ls -l
+total 48
+   -rw-r--r-- 1 user user 1234 Apr  1 10:00 file1.txt
+   -rw-r--r-- 1 user user  567 Apr  1 10:01 file2.txt
+   ...
+
+ 
