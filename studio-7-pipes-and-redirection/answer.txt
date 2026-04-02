@@ -1,0 +1,55 @@
+
+Darcy Mupenda
+CSCI 2510 
+Studio-7
+
+1. Program1 code
+
+#include <stdio.h>
+int main() {
+    printf("Hello this is class pipe demo!\n");
+    return 0;
+}
+
+Output: Hello this is class pipe demo!
+
+2. Program2 code
+int main() {
+    char input[256];
+    while (1){
+        if (fgets(input, sizeof(input), stdin) == NULL)
+            break;
+        printf("Program 2 demo got: %s", input);
+    }
+    return 0;
+}
+
+Output: 
+Hi mate
+Program 2 demo got: Hi mate
+
+
+3. Output when running pipe.c 
+
+Program1 output line 
+Program hangs until  CTRL-C
+
+4. pipe() question
+
+- Which element of fd[2] contains the read end after pipe() returns?
+fd[0] = read end
+- which element contains the write end?
+fd[1] = write end
+
+5. dup2() manual question
+
+- Which argument is closed when dup2() succeeds?
+The second argument (newfd)
+
+6. (2) Advanatages
+
+- Abstraction: Programs don't need to know the source/destination of their I/O they just use stdin/stdout. 
+- Flexibility: The OS can redirect I/O to files, pipes, sockets, and more. Without modifying the programs, enabling powerful shell pipelines and IPC. 
+
+
+ 
