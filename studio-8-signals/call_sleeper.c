@@ -3,13 +3,21 @@
 #include <unistd.h> //fork(), execvp(), perror(), waidpid() 
 #include <stdlib.h> //For exit()
 #include <stdio.h> //For printf()
+#include <signal.h> // for signal
+
+void sigint_handler(int signum) {
+    printf("Parent process ignoring SIGINT (signal %d)\n", signum);
+}
 
 int main( int argc, char* argv[] ){
 
 	pid_t ret;
+	
+	// Parent registers a handler for SIGINT
+   	signal(SIGINT, sigint_handler);
 
 	printf("Forking sleeper...\n");	
-
+	
 	ret = fork();
 	if( ret == -1 ){
 		perror("Could not fork");

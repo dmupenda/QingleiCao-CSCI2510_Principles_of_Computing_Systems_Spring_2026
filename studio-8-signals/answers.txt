@@ -1,0 +1,66 @@
+
+Darcy Mupenda
+Studio-8
+CSCI 2510
+April 07 2026
+
+1. Exercise 1 ouput:
+Sleeper's PID is: 6791
+Slept for 0 iterations!
+Slept for 1 iterations!
+Slept for 2 iterations!
+Slept for 3 iterations!
+Slept for 4 iterations!
+Slept for 5 iterations!
+Slept for 6 iterations!
+Slept for 7 iterations!
+Slept for 8 iterations!
+Slept for 9 iterations!
+Slept for 10 iterations!
+Slept for 11 iterations!
+Slept for 12 iterations!
+Slept for 13 iterations!
+Slept for 14 iterations!
+
+2. SIGINT:
+SIGINT has numeric value 2. 
+Associated comment: interrupt program
+
+3.Running two terminals
+command used: kill -s SIGTERM 7397
+The sleeper program terminates immediately.
+used another signal with PID:7397
+Terminated: 15
+
+4.Compiling call_sleeper.c file
+Both parent and child terminates 
+The parent does not print the success message because it also received SIGINT.
+
+5.Signal handling code: 
+
+#include <signal.h>
+
+void handle_sigint(int signum){
+printf("\nSIGINT received but ignored by parent!\n");
+}
+
+Modified call_sleeper: output
+Forking sleeper...
+Waiting for sleeper 7512...
+Sleeper's PID is: 7512
+Slept for 0 iterations!
+Slept for 1 iterations!
+Slept for 2 iterations!
+Slept for 3 iterations!
+Slept for 4 iterations!
+Slept for 5 iterations!
+Slept for 6 iterations!
+Slept for 7 iterations!
+^CParent process ignoring SIGINT (signal 2)
+Parent finished waiting and returned successfully!
+
+child sleeps, parent survives and prints success message. 
+
+6.Example use of signal handling: 
+
+Signal handling is useful in a web server when reloading configuration files without shutting down the server. Instead of stopping the server, a signal can trigger it to reload settings dynamically. 
