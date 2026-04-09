@@ -1,0 +1,10 @@
+CSCI 2510 
+Darcy Mupenda
+April 9th 2026
+
+
+1.Describe any known bugs or ways that your submission deviates from the above specification.
+Error handling for malformed pipeline syntax (such as unmatched parentheses) is minimal and may not catch all invalid cases.
+
+2 Indicate which, if any, extra credit exercises you have attempted.
+ Yes, I implemented the extra‑credit prompt. The prompt shows the current directory path relative to the user’s $HOME environment variable.
