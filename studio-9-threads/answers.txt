@@ -1,0 +1,40 @@
+CSCI 2510 
+Darcy Mupenda
+April 14 2026
+STUDIO-9
+
+1. What is the return type and the expected arguments for the thread entry function?
+Return type: void*
+Argument: void*
+Function: void* thread_entry(void* args);
+
+2. Copy and paste your struct definition.
+struct thread_args {
+    int arg1;
+    char arg2[100];
+    int ret;
+};
+
+3. Copy and paste the program output.(After printing struct values in thread)
+Hello from the thread!
+Thread finished. 
+
+4.Output from struct arguments
+Hello from the thread!
+Thread finished, back in main.
+
+5. Output from 5-thread program
+Thread 0 received: arg1=0, arg2="This is thread 0"
+Thread 1 received: arg1=1, arg2="This is thread 1"
+Thread 3 received: arg1=3, arg2="This is thread 3"
+Thread 4 received: arg1=4, arg2="This is thread 4"
+Thread 2 received: arg1=2, arg2="This is thread 2"
+Main: thread 0 returned ret=0
+Main: thread 1 returned ret=10
+Main: thread 2 returned ret=20
+Main: thread 3 returned ret=30
+Main: thread 4 returned ret=40
+bash-3.2$ vi answers.txt
+
+6. What do you notice about the output ordering? Why do you think this is?
+The output order changes every time the program is run. This happens because threads execute concurrently and the OS scheduler decides when each thread gets CPU time. Since scheduling is non-deterministic, there is no guarantee about which thread runs first, so the print order varies between runs.   
