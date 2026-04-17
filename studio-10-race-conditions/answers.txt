@@ -1,0 +1,53 @@
+CSCI 2510 
+Darcy Mupenda
+April 16th 2026
+
+1. Sequential execution prediction
+
+Prediction:
+The final value should be 0 because increments and decrements cancel out.
+
+Actual result:
+Final value was 0.
+
+2. Multithreaded prediction
+
+Prediction:
+The value should still be 0, but due to race conditions it may not be.
+
+3. Multithreaded results
+
+Run 1: Final value of race: 234551
+Run 2: Final value of race: 347163
+Run 3: Final value of race: -1953893
+Run 4: Final value of race: -604703
+Run 5: Final value of race: 1059714
+
+4. Explanation of behavior
+
+Race conditions occur when multiple threads access and modify the share variable at the same time. Threads are capable of interacting each other between steps, causing lost updates and incorrect final values. 
+
+5. Max/min possible values
+
+In extreme cases:
+Could be close to +2,000,000
+Could be close to -2,000,000
+Depends on how operations overlap
+
+6. With fewer iterations, such as 1,000, the results are often 0 or only slightly different from 0. The race condition is still present, but it is less noticeable.
+
+7. Single-core question:
+
+Yes, race conditions still happen on a single core because the OS switches between threads rapidly (context switching), interleaving their operations.
+
+8. taskset results
+
+Still incorrect values
+Confirms race condition does not require multiple cores.
+
+9. 200 million operations
+results vary even more, there appear even more larger deviations
+
+10.  Final explanation
+
+Even on one core, thread interleaving causes race conditions. With more operations, there are more opportunities for interference, increasing the likelihood of incorrect results. 
