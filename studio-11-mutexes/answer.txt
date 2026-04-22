@@ -1,0 +1,61 @@
+DARCY MUPENDA
+CSCI 2510
+STUDIO-11: Mutex
+April 19th, 2026
+
+Step 1:
+Prediction:
+Using a mutex will eliminate the race condition.
+The final value should always be 0 because increments and decrements cancel out.
+The program will take longer due to locking overhead.
+
+Step 2:
+Initial runs caused segmentation faults due to passing NULL instead of the mutex pointer.
+
+After fixing:
+
+Final counter value: 0
+Final counter value: 0
+Final counter value: 0
+
+Step 3:
+Racy Program Output:
+
+Final counter value: -1194976
+Final counter value: 1038209
+Final counter value: -3046109
+
+(Race condition causes inconsistent results)
+
+Timing (fill in after running time ./race 3 times):
+
+Run 1: 0.478s
+Run 2: 0.093s
+Run 3: 0.101s
+Average: 0.101
+
+Step 4:
+(After fix, per-iteration locking)
+
+Run 1: 0.915s
+Run 2: 1.559s
+Run 3: 1.639s
+Average: 1.639s
+
+This version is much slower due to locking/unlocking every iteration.
+
+Step 5:
+
+Run 1: 0.085 s
+Run 2: 0.076 s
+Run 3: 0.085 s
+
+Average: 0.082 s
+
+This version is much faster than per-iteration locking because it only locks
+and unlocks the mutex once per thread. However, it removes concurrency since
+one thread holds the mutex for the entire duration of its loop.
+Step 6:
+The crash happened because a NULL pointer was passed instead of a valid mutex, and fixing it made the program work. Per-iteration locking is slow due to repeated overhead, while per-thread locking is faster but reduces concurrency.
+Step 7:
+Per-iteration locking is useful for frequent, fine-grained shared access. Per-thread locking is better when a thread needs long, exclusive access to a resource. 
