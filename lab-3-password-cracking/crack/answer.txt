@@ -1,0 +1,29 @@
+DARCY MUPENDA
+CSCI 2510
+April 23rd 2026
+
+1. 4-letter password (abccBcrPOxnLU)
+pass
+
+2. 5-letter password (xyxMB6gxuiBZg)
+ferry
+
+3. Time (1 thread, keysize 5, no match)
+0.012s
+
+4. Times (multi-threaded)
+Threads	Time(s)
+2	0.028
+4	0.008
+8	0.008
+13	0.006
+26	0.005
+
+5. Performance does not scale linearly. Due to mutex-protected crypt() on macOS, execution is effectively single-threaded.
+
+6. Bugs
+Program crashes (invalid results)
+Timing not reliable
+Uses crypt() + mutex (not truly parallel)
+
+
